@@ -70,13 +70,15 @@ const WordTableRow = ({ word, onEdit, onDelete, onWordSelect }) => {
             onClick={(e) => e.stopPropagation()}
           />
         </td>
-        <td className="word-table-cell actions-container">
-          <Button variant="success" onClick={handleSaveClick}>
-            Save
-          </Button>
-          <Button variant="secondary" onClick={handleCancelClick}>
-            Cancel
-          </Button>
+        <td className="word-table-cell">
+          <div className="editing-actions-container">
+            <Button variant="success" onClick={handleSaveClick}>
+              Save
+            </Button>
+            <Button variant="secondary" onClick={handleCancelClick}>
+              Cancel
+            </Button>
+          </div>
         </td>
       </tr>
     );

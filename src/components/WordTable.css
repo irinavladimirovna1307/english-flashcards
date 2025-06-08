@@ -26,6 +26,7 @@
 .word-table-cell {
   padding: var(--spacing-md);
   border-bottom: 1px solid var(--border);
+  vertical-align: middle;
 }
 
 .word-table-row:last-child .word-table-cell {
@@ -43,11 +44,23 @@
 
 .editing-row .word-table-cell {
   padding: var(--spacing-sm) var(--spacing-md);
+  border-bottom: 1px solid var(--border);
+  vertical-align: middle;
 }
 
 .actions-container {
   display: flex;
   gap: var(--spacing-sm);
+  justify-content: center;
+  align-items: center;
+}
+
+.editing-actions-container {
+  display: flex;
+  gap: var(--spacing-sm);
+  justify-content: center;
+  align-items: center;
+  height: 100%;
 }
 
 .edit-input-field {
@@ -59,6 +72,8 @@
   font-size: 1rem;
   background-color: var(--card-bg);
   color: var(--text);
+  height: 36px;
+  box-sizing: border-box;
 }
 
 .edit-input-field:focus {
