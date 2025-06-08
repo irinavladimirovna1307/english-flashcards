@@ -2,16 +2,16 @@
   background-color: var(--card-bg);
   border-radius: var(--radius-lg);
   box-shadow: var(--shadow-md);
-  padding: var(--spacing-lg);
-  margin-bottom: var(--spacing-xl);
+  padding: var(--spacing-xl);
   transition: var(--transition);
   max-width: 500px;
   margin: var(--spacing-xl) auto;
+  border: 1px solid var(--border);
 }
 
 .word-card:hover {
   transform: translateY(-5px);
-  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 12px 20px rgba(0, 0, 0, 0.15);
 }
 
 .card-content {
@@ -19,15 +19,17 @@
 }
 
 .english-word {
-  font-size: 2rem;
+  font-size: 2.2rem;
   color: var(--primary);
   margin-bottom: var(--spacing-sm);
+  font-weight: 700;
 }
 
 .transcription {
-  font-size: 1.2rem;
+  font-size: 1.3rem;
   color: var(--text-light);
   margin-bottom: var(--spacing-lg);
+  font-style: italic;
 }
 
 .translation-section {
@@ -35,28 +37,31 @@
 }
 
 .russian-word {
-  font-size: 1.8rem;
+  font-size: 2rem;
   color: var(--secondary);
-  font-weight: bold;
+  font-weight: 600;
+  margin-bottom: var(--spacing-md);
 }
 
 .show-translation-btn,
 .hide-translation-btn {
-  background-color: var(--primary);
+  background: linear-gradient(135deg, var(--primary), var(--secondary));
   color: white;
   border: none;
-  padding: var(--spacing-sm) var(--spacing-md);
-  border-radius: var(--radius-sm);
+  padding: var(--spacing-sm) var(--spacing-xl);
+  border-radius: var(--radius-lg);
   cursor: pointer;
-  font-size: 1rem;
+  font-size: 1.1rem;
   transition: var(--transition);
   margin-top: var(--spacing-md);
+  font-weight: 600;
+  letter-spacing: 0.5px;
 }
 
 .show-translation-btn:hover,
 .hide-translation-btn:hover {
-  background-color: var(--secondary);
   transform: scale(1.05);
+  box-shadow: 0 4px 10px rgba(67, 97, 238, 0.3);
 }
 
 .show-translation-btn:active,
@@ -65,7 +70,7 @@
 }
 
 .hide-translation-btn {
-  background-color: var(--secondary);
+  background: linear-gradient(135deg, var(--secondary), var(--primary));
 }
 
 @keyframes fadeIn {

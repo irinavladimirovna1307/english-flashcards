@@ -4,7 +4,7 @@ import "./Footer.css";
 const Footer = () => {
   return (
     <footer className="footer">
-      <p>© {new Date().getFullYear()} Language Flashcards App</p>
+      <p>© {new Date().getFullYear()} WordFlow App</p>
       <div className="footer-links">
         <a href="#">About</a>
         <a href="#">Contact</a>

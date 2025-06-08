@@ -1,16 +1,16 @@
 .word-table-container {
   overflow-x: auto;
   margin: var(--spacing-xl) 0;
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-sm);
+  background-color: var(--card-bg);
+  padding: 1px;
 }
 
 .word-table {
   width: 100%;
-  border-collapse: separate;
-  border-spacing: 0;
+  border-collapse: collapse;
   background-color: var(--card-bg);
-  border-radius: var(--radius-md);
-  box-shadow: var(--shadow-sm);
-  overflow: hidden;
 }
 
 .word-table th {
@@ -18,6 +18,9 @@
   color: white;
   padding: var(--spacing-md);
   text-align: left;
+  font-weight: 600;
+  position: sticky;
+  top: 0;
 }
 
 .word-table td {
@@ -30,11 +33,11 @@
 }
 
 .word-table tr:hover {
-  background-color: rgba(107, 140, 188, 0.05);
+  background-color: rgba(67, 97, 238, 0.05);
 }
 
 .editing-row {
-  background-color: rgba(74, 111, 165, 0.1) !important;
+  background-color: rgba(67, 97, 238, 0.1) !important;
   animation: highlight 1s ease;
 }
 
@@ -54,11 +57,13 @@
   border-radius: var(--radius-sm);
   transition: var(--transition);
   font-size: 1rem;
+  background-color: var(--card-bg);
+  color: var(--text);
 }
 
 .edit-input:focus {
   border-color: var(--primary);
-  box-shadow: 0 0 0 2px rgba(74, 111, 165, 0.25);
+  box-shadow: 0 0 0 2px rgba(67, 97, 238, 0.25);
   outline: none;
 }
 
@@ -67,6 +72,6 @@
     background-color: rgba(255, 235, 59, 0.3);
   }
   100% {
-    background-color: rgba(74, 111, 165, 0.1);
+    background-color: rgba(67, 97, 238, 0.1);
   }
 }
