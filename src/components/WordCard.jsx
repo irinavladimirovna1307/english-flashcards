@@ -9,23 +9,26 @@ const WordCard = ({ word }) => {
   };
 
   return (
-    <div className="word-card">
-      <div className="card-content">
-        <h2 className="english-word">{word.english}</h2>
-        <p className="transcription">{word.transcription}</p>
+    <div className="word-card-component">
+      <div className="card-content-container">
+        <h2 className="english-word-text">{word.english}</h2>
+        <p className="transcription-text">{word.transcription}</p>
 
         {showTranslation ? (
           <div className="translation-section">
-            <p className="russian-word">{word.russian}</p>
+            <p className="russian-word-text">{word.russian}</p>
             <button
-              className="hide-translation-btn"
+              className="translation-toggle-button"
               onClick={toggleTranslation}
             >
               Скрыть перевод
             </button>
           </div>
         ) : (
-          <button className="show-translation-btn" onClick={toggleTranslation}>
+          <button
+            className="translation-toggle-button"
+            onClick={toggleTranslation}
+          >
             Показать перевод
           </button>
         )}

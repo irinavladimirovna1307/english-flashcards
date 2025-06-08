@@ -1,27 +1,28 @@
-.footer {
+.footer-component {
   background-color: var(--primary);
-  color: white;
+  color: var(--text);
   padding: var(--spacing-md);
   text-align: center;
   margin-top: auto;
 }
 
-.footer p {
+.footer-text {
   margin: 0;
 }
 
-.footer-links {
+.footer-links-container {
   margin-top: var(--spacing-sm);
 }
 
-.footer-links a {
-  color: rgba(255, 255, 255, 0.8);
+.footer-link {
+  color: var(--text);
   margin: 0 var(--spacing-sm);
   text-decoration: none;
   transition: var(--transition);
+  opacity: 0.8;
 }
 
-.footer-links a:hover {
-  color: white;
+.footer-link:hover {
+  opacity: 1;
   text-decoration: underline;
 }

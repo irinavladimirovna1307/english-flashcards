@@ -33,34 +33,34 @@ const WordTableRow = ({ word, onEdit, onDelete }) => {
   if (isEditing) {
     return (
       <tr className="editing-row">
-        <td>
+        <td className="word-table-cell">
           <input
             type="text"
             value={editedWord.english}
             onChange={(e) => handleChange("english", e.target.value)}
             onKeyDown={handleKeyDown}
-            className="edit-input"
+            className="edit-input-field"
           />
         </td>
-        <td>
+        <td className="word-table-cell">
           <input
             type="text"
             value={editedWord.transcription}
             onChange={(e) => handleChange("transcription", e.target.value)}
             onKeyDown={handleKeyDown}
-            className="edit-input"
+            className="edit-input-field"
           />
         </td>
-        <td>
+        <td className="word-table-cell">
           <input
             type="text"
             value={editedWord.russian}
             onChange={(e) => handleChange("russian", e.target.value)}
             onKeyDown={handleKeyDown}
-            className="edit-input"
+            className="edit-input-field"
           />
         </td>
-        <td className="actions-cell">
+        <td className="word-table-cell actions-container">
           <Button variant="success" onClick={handleSaveClick}>
             Save
           </Button>
@@ -73,11 +73,11 @@ const WordTableRow = ({ word, onEdit, onDelete }) => {
   }
 
   return (
-    <tr>
-      <td>{word.english}</td>
-      <td>{word.transcription}</td>
-      <td>{word.russian}</td>
-      <td className="actions-cell">
+    <tr className="word-table-row">
+      <td className="word-table-cell">{word.english}</td>
+      <td className="word-table-cell">{word.transcription}</td>
+      <td className="word-table-cell">{word.russian}</td>
+      <td className="word-table-cell actions-container">
         <Button variant="primary" onClick={handleEditClick}>
           Edit
         </Button>

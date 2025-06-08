@@ -8,10 +8,10 @@ const WordTable = ({ words, onEditWord, onDeleteWord }) => {
       <table className="word-table">
         <thead>
           <tr>
-            <th>English</th>
-            <th>Transcription</th>
-            <th>Russian</th>
-            <th>Actions</th>
+            <th className="word-table-header">English</th>
+            <th className="word-table-header">Transcription</th>
+            <th className="word-table-header">Russian</th>
+            <th className="word-table-header">Actions</th>
           </tr>
         </thead>
         <tbody>
@@ -28,5 +28,4 @@ const WordTable = ({ words, onEditWord, onDeleteWord }) => {
     </div>
   );
 };
-
 export default WordTable;

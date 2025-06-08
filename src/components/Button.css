@@ -1,4 +1,4 @@
-.btn {
+.button-component {
   padding: var(--spacing-sm) var(--spacing-md);
   border: none;
   border-radius: var(--radius-sm);
@@ -12,48 +12,48 @@
   font-family: "Nunito", sans-serif;
 }
 
-.btn:hover {
+.button-component:hover {
   transform: translateY(-2px);
   box-shadow: var(--shadow-sm);
 }
 
-.btn:active {
+.button-component:active {
   transform: translateY(0);
 }
 
-.btn-primary {
-  background: linear-gradient(135deg, var(--primary), var(--secondary));
-  color: white;
+.button-primary {
+  background-color: var(--primary);
+  color: var(--text);
 }
 
-.btn-primary:hover {
-  background: linear-gradient(135deg, var(--secondary), var(--primary));
+.button-primary:hover {
+  background-color: var(--accent);
 }
 
-.btn-secondary {
+.button-secondary {
   background-color: var(--background);
   color: var(--text);
   border: 1px solid var(--border);
 }
 
-.btn-secondary:hover {
+.button-secondary:hover {
   background-color: var(--card-bg);
 }
 
-.btn-success {
-  background: linear-gradient(135deg, #4caf50, #388e3c);
-  color: white;
+.button-success {
+  background-color: var(--success);
+  color: var(--text);
 }
 
-.btn-success:hover {
-  background: linear-gradient(135deg, #388e3c, #4caf50);
+.button-success:hover {
+  background-color: var(--success-dark);
 }
 
-.btn-danger {
-  background: linear-gradient(135deg, #f44336, #d32f2f);
-  color: white;
+.button-danger {
+  background-color: var(--error);
+  color: var(--text);
 }
 
-.btn-danger:hover {
-  background: linear-gradient(135deg, #d32f2f, #f44336);
+.button-danger:hover {
+  background-color: var(--error-dark);
 }

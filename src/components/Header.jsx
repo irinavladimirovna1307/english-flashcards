@@ -4,13 +4,17 @@ import { FiSun, FiMoon } from "react-icons/fi";
 
 const Header = ({ toggleTheme, theme }) => {
   return (
-    <header className="header">
-      <h1>WordFlow</h1>
-      <nav>
-        <button className="nav-btn">Words</button>
-        <button className="nav-btn">Training</button>
-        <button className="nav-btn">Progress</button>
-        <button className="theme-toggle" onClick={toggleTheme}>
+    <header className="header-component">
+      <h1 className="header-title">WordFlow</h1>
+      <nav className="navigation-container">
+        <button className="nav-button">Words</button>
+        <button className="nav-button">Training</button>
+        <button className="nav-button">Progress</button>
+        <button
+          className="theme-toggle-button"
+          onClick={toggleTheme}
+          aria-label="Toggle theme"
+        >
           {theme === "light" ? <FiMoon size={20} /> : <FiSun size={20} />}
         </button>
       </nav>
