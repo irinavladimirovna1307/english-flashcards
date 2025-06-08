@@ -27,6 +27,8 @@ const App = () => {
     },
   ]);
 
+  const [selectedWord, setSelectedWord] = useState(words[0]);
+
   useEffect(() => {
     document.body.setAttribute("data-theme", theme);
   }, [theme]);
@@ -36,24 +38,42 @@ const App = () => {
   };
 
   const handleEditWord = (id, updatedWord) => {
-    setWords(
-      words.map((word) => (word.id === id ? { ...word, ...updatedWord } : word))
+    const updatedWords = words.map((word) =>
+      word.id === id ? { ...word, ...updatedWord } : word
     );
+
+    setWords(updatedWords);
+
+    // обновляем выбранное слово, если оно было изменено
+    if (selectedWord.id === id) {
+      setSelectedWord({ ...selectedWord, ...updatedWord });
+    }
   };
 
   const handleDeleteWord = (id) => {
-    setWords(words.filter((word) => word.id !== id));
+    const updatedWords = words.filter((word) => word.id !== id);
+    setWords(updatedWords);
+
+    // если удалили выбранное слово, выбираем первое из оставшихся
+    if (selectedWord.id === id) {
+      setSelectedWord(updatedWords[0] || null);
+    }
+  };
+
+  const handleWordSelect = (word) => {
+    setSelectedWord(word);
   };
 
   return (
     <div className="app">
       <Header toggleTheme={toggleTheme} theme={theme} />
       <main>
-        <WordCard word={words[0]} />
+        {selectedWord && <WordCard word={selectedWord} />}
         <WordTable
           words={words}
           onEditWord={handleEditWord}
           onDeleteWord={handleDeleteWord}
+          onWordSelect={handleWordSelect}
         />
       </main>
       <Footer />

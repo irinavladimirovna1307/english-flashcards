@@ -2,22 +2,29 @@ import React, { useState } from "react";
 import Button from "./Button";
 import "./WordTable.css";
 
-const WordTableRow = ({ word, onEdit, onDelete }) => {
+const WordTableRow = ({ word, onEdit, onDelete, onWordSelect }) => {
   const [isEditing, setIsEditing] = useState(false);
   const [editedWord, setEditedWord] = useState({ ...word });
 
-  const handleEditClick = () => {
+  const handleEditClick = (e) => {
+    e.stopPropagation();
     setIsEditing(true);
   };
 
-  const handleSaveClick = () => {
+  const handleSaveClick = (e) => {
+    e.stopPropagation();
     onEdit(word.id, editedWord);
     setIsEditing(false);
   };
 
-  const handleCancelClick = () => {
+  const handleCancelClick = (e) => {
+    e.stopPropagation();
     setEditedWord({ ...word });
     setIsEditing(false);
+  };
+
+  const handleRowClick = () => {
+    onWordSelect(word);
   };
 
   const handleChange = (field, value) => {
@@ -26,13 +33,13 @@ const WordTableRow = ({ word, onEdit, onDelete }) => {
 
   const handleKeyDown = (e) => {
     if (e.key === "Enter") {
-      handleSaveClick();
+      handleSaveClick(e);
     }
   };
 
   if (isEditing) {
     return (
-      <tr className="editing-row">
+      <tr className="editing-row" onClick={handleRowClick}>
         <td className="word-table-cell">
           <input
             type="text"
@@ -40,6 +47,7 @@ const WordTableRow = ({ word, onEdit, onDelete }) => {
             onChange={(e) => handleChange("english", e.target.value)}
             onKeyDown={handleKeyDown}
             className="edit-input-field"
+            onClick={(e) => e.stopPropagation()}
           />
         </td>
         <td className="word-table-cell">
@@ -49,6 +57,7 @@ const WordTableRow = ({ word, onEdit, onDelete }) => {
             onChange={(e) => handleChange("transcription", e.target.value)}
             onKeyDown={handleKeyDown}
             className="edit-input-field"
+            onClick={(e) => e.stopPropagation()}
           />
         </td>
         <td className="word-table-cell">
@@ -58,6 +67,7 @@ const WordTableRow = ({ word, onEdit, onDelete }) => {
             onChange={(e) => handleChange("russian", e.target.value)}
             onKeyDown={handleKeyDown}
             className="edit-input-field"
+            onClick={(e) => e.stopPropagation()}
           />
         </td>
         <td className="word-table-cell actions-container">
@@ -73,7 +83,7 @@ const WordTableRow = ({ word, onEdit, onDelete }) => {
   }
 
   return (
-    <tr className="word-table-row">
+    <tr className="word-table-row" onClick={handleRowClick}>
       <td className="word-table-cell">{word.english}</td>
       <td className="word-table-cell">{word.transcription}</td>
       <td className="word-table-cell">{word.russian}</td>
@@ -81,7 +91,13 @@ const WordTableRow = ({ word, onEdit, onDelete }) => {
         <Button variant="primary" onClick={handleEditClick}>
           Edit
         </Button>
-        <Button variant="danger" onClick={() => onDelete(word.id)}>
+        <Button
+          variant="danger"
+          onClick={(e) => {
+            e.stopPropagation();
+            onDelete(word.id);
+          }}
+        >
           Delete
         </Button>
       </td>

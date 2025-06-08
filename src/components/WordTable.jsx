@@ -2,7 +2,7 @@ import React from "react";
 import WordTableRow from "./WordTableRow";
 import "./WordTable.css";
 
-const WordTable = ({ words, onEditWord, onDeleteWord }) => {
+const WordTable = ({ words, onEditWord, onDeleteWord, onWordSelect }) => {
   return (
     <div className="word-table-container">
       <table className="word-table">
@@ -21,6 +21,7 @@ const WordTable = ({ words, onEditWord, onDeleteWord }) => {
               word={word}
               onEdit={onEditWord}
               onDelete={onDeleteWord}
+              onWordSelect={onWordSelect}
             />
           ))}
         </tbody>
@@ -28,4 +29,5 @@ const WordTable = ({ words, onEditWord, onDeleteWord }) => {
     </div>
   );
 };
+
 export default WordTable;
