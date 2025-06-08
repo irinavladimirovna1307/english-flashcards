@@ -1,0 +1,80 @@
+.word-card {
+  background-color: var(--card-bg);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-md);
+  padding: var(--spacing-lg);
+  margin-bottom: var(--spacing-xl);
+  transition: var(--transition);
+  max-width: 500px;
+  margin: var(--spacing-xl) auto;
+}
+
+.word-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+.card-content {
+  text-align: center;
+}
+
+.english-word {
+  font-size: 2rem;
+  color: var(--primary);
+  margin-bottom: var(--spacing-sm);
+}
+
+.transcription {
+  font-size: 1.2rem;
+  color: var(--text-light);
+  margin-bottom: var(--spacing-lg);
+}
+
+.translation-section {
+  animation: fadeIn 0.5s ease;
+}
+
+.russian-word {
+  font-size: 1.8rem;
+  color: var(--secondary);
+  font-weight: bold;
+}
+
+.show-translation-btn,
+.hide-translation-btn {
+  background-color: var(--primary);
+  color: white;
+  border: none;
+  padding: var(--spacing-sm) var(--spacing-md);
+  border-radius: var(--radius-sm);
+  cursor: pointer;
+  font-size: 1rem;
+  transition: var(--transition);
+  margin-top: var(--spacing-md);
+}
+
+.show-translation-btn:hover,
+.hide-translation-btn:hover {
+  background-color: var(--secondary);
+  transform: scale(1.05);
+}
+
+.show-translation-btn:active,
+.hide-translation-btn:active {
+  transform: scale(0.98);
+}
+
+.hide-translation-btn {
+  background-color: var(--secondary);
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}

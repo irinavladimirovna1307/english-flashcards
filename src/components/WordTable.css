@@ -1,0 +1,72 @@
+.word-table-container {
+  overflow-x: auto;
+  margin: var(--spacing-xl) 0;
+}
+
+.word-table {
+  width: 100%;
+  border-collapse: separate;
+  border-spacing: 0;
+  background-color: var(--card-bg);
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-sm);
+  overflow: hidden;
+}
+
+.word-table th {
+  background-color: var(--primary);
+  color: white;
+  padding: var(--spacing-md);
+  text-align: left;
+}
+
+.word-table td {
+  padding: var(--spacing-md);
+  border-bottom: 1px solid var(--border);
+}
+
+.word-table tr:last-child td {
+  border-bottom: none;
+}
+
+.word-table tr:hover {
+  background-color: rgba(107, 140, 188, 0.05);
+}
+
+.editing-row {
+  background-color: rgba(74, 111, 165, 0.1) !important;
+  animation: highlight 1s ease;
+}
+
+.editing-row td {
+  padding: var(--spacing-sm) var(--spacing-md);
+}
+
+.actions-cell {
+  display: flex;
+  gap: var(--spacing-sm);
+}
+
+.edit-input {
+  width: 100%;
+  padding: var(--spacing-sm);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  transition: var(--transition);
+  font-size: 1rem;
+}
+
+.edit-input:focus {
+  border-color: var(--primary);
+  box-shadow: 0 0 0 2px rgba(74, 111, 165, 0.25);
+  outline: none;
+}
+
+@keyframes highlight {
+  0% {
+    background-color: rgba(255, 235, 59, 0.3);
+  }
+  100% {
+    background-color: rgba(74, 111, 165, 0.1);
+  }
+}

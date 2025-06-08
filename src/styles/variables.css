@@ -1,0 +1,33 @@
+:root {
+  /* Цвета */
+  --primary: #4a6fa5;
+  --secondary: #6b8cbc;
+  --accent: #ff6b6b;
+  --background: #f5f7fa;
+  --card-bg: #ffffff;
+  --text: #333333;
+  --text-light: #777777;
+  --border: #e1e5eb;
+  --success: #4caf50;
+  --warning: #ff9800;
+  --error: #f44336;
+
+  /* Размеры */
+  --spacing-xs: 4px;
+  --spacing-sm: 8px;
+  --spacing-md: 16px;
+  --spacing-lg: 24px;
+  --spacing-xl: 32px;
+
+  /* Тени */
+  --shadow-sm: 0 2px 4px rgba(0, 0, 0, 0.1);
+  --shadow-md: 0 4px 8px rgba(0, 0, 0, 0.15);
+
+  /* Радиусы */
+  --radius-sm: 4px;
+  --radius-md: 8px;
+  --radius-lg: 12px;
+
+  /* Анимации */
+  --transition: all 0.3s ease;
+}
