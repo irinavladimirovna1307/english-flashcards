@@ -2,16 +2,22 @@
   background-color: var(--card-bg);
   border-radius: var(--radius-lg);
   box-shadow: var(--shadow-md);
-  padding: var(--spacing-xl);
+  padding: 2rem; /* var(--spacing-xl) */
   transition: var(--transition);
-  max-width: 500px;
-  margin: var(--spacing-xl) auto;
-  border: 1px solid var(--border);
+  max-width: 31.25rem;
+  margin: 0 auto;
+  border: 0.0625rem solid var(--border);
+
+  /* Для карусели */
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }
 
 .word-card-component:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 12px 20px rgba(0, 0, 0, 0.1);
+  transform: translateY(-0.3125rem);
+  box-shadow: 0 0.75rem 1.25rem rgba(0, 0, 0, 0.1);
 }
 
 .card-content-container {
@@ -21,14 +27,14 @@
 .english-word-text {
   font-size: 2.2rem;
   color: var(--text);
-  margin-bottom: var(--spacing-sm);
+  margin-bottom: 0.5rem; /* var(--spacing-sm) */
   font-weight: 700;
 }
 
 .transcription-text {
   font-size: 1.3rem;
   color: var(--text-light);
-  margin-bottom: var(--spacing-lg);
+  margin-bottom: 1.5rem; /* var(--spacing-lg) */
   font-style: italic;
 }
 
@@ -40,26 +46,26 @@
   font-size: 2rem;
   color: var(--secondary);
   font-weight: 600;
-  margin-bottom: var(--spacing-md);
+  margin-bottom: 1rem; /* var(--spacing-md) */
 }
 
 .translation-toggle-button {
   background-color: var(--primary);
   color: var(--text);
   border: none;
-  padding: var(--spacing-sm) var(--spacing-xl);
+  padding: 0.5rem 2rem; /* var(--spacing-sm) var(--spacing-xl) */
   border-radius: var(--radius-lg);
   cursor: pointer;
   font-size: 1.1rem;
   transition: var(--transition);
-  margin-top: var(--spacing-md);
+  margin-top: 1rem; /* var(--spacing-md) */
   font-weight: 600;
-  letter-spacing: 0.5px;
+  letter-spacing: 0.03125rem;
 }
 
 .translation-toggle-button:hover {
   transform: scale(1.05);
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 0.25rem 0.625rem rgba(0, 0, 0, 0.1);
 }
 
 .translation-toggle-button:active {
@@ -69,7 +75,7 @@
 @keyframes fadeIn {
   from {
     opacity: 0;
-    transform: translateY(10px);
+    transform: translateY(0.625rem);
   }
   to {
     opacity: 1;

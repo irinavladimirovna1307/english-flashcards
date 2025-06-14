@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import Header from "./components/Header/Header";
 import Footer from "./components/Footer/Footer";
-import WordCard from "./components/WordCard/WordCard";
+import WordCarousel from "./components/WordCarousel/WordCarousel";
 import WordTable from "./components/WordTable/WordTable";
 
 const App = () => {
@@ -25,9 +25,79 @@ const App = () => {
       transcription: "[ˈlæŋɡwɪdʒ]",
       russian: "язык",
     },
+    {
+      id: 9,
+      english: "knowledge",
+      transcription: "[ˈnɒlɪdʒ]",
+      russian: "знание",
+    },
+    {
+      id: 10,
+      english: "development",
+      transcription: "[dɪˈveləpmənt]",
+      russian: "развитие",
+    },
+    {
+      id: 11,
+      english: "beautiful",
+      transcription: "[ˈbjuːtɪfl]",
+      russian: "красивый",
+    },
+    {
+      id: 12,
+      english: "environment",
+      transcription: "[ɪnˈvaɪrənmənt]",
+      russian: "окружающая среда",
+    },
+    {
+      id: 13,
+      english: "experience",
+      transcription: "[ɪkˈspɪəriəns]",
+      russian: "опыт",
+    },
+    {
+      id: 14,
+      english: "important",
+      transcription: "[ɪmˈpɔːtnt]",
+      russian: "важный",
+    },
+    {
+      id: 15,
+      english: "government",
+      transcription: "[ˈɡʌvənmənt]",
+      russian: "правительство",
+    },
+    {
+      id: 16,
+      english: "different",
+      transcription: "[ˈdɪfrənt]",
+      russian: "разный",
+    },
+    {
+      id: 17,
+      english: "understand",
+      transcription: "[ˌʌndəˈstænd]",
+      russian: "понимать",
+    },
+    {
+      id: 18,
+      english: "education",
+      transcription: "[ˌedʒuˈkeɪʃn]",
+      russian: "образование",
+    },
+    {
+      id: 19,
+      english: "community",
+      transcription: "[kəˈmjuːnəti]",
+      russian: "сообщество",
+    },
+    {
+      id: 20,
+      english: "technology",
+      transcription: "[tekˈnɒlədʒi]",
+      russian: "технология",
+    },
   ]);
-
-  const [selectedWord, setSelectedWord] = useState(words[0]);
 
   useEffect(() => {
     document.body.setAttribute("data-theme", theme);
@@ -38,42 +108,24 @@ const App = () => {
   };
 
   const handleEditWord = (id, updatedWord) => {
-    const updatedWords = words.map((word) =>
-      word.id === id ? { ...word, ...updatedWord } : word
+    setWords(
+      words.map((word) => (word.id === id ? { ...word, ...updatedWord } : word))
     );
-
-    setWords(updatedWords);
-
-    // обновляем выбранное слово, если оно было изменено
-    if (selectedWord.id === id) {
-      setSelectedWord({ ...selectedWord, ...updatedWord });
-    }
   };
 
   const handleDeleteWord = (id) => {
-    const updatedWords = words.filter((word) => word.id !== id);
-    setWords(updatedWords);
-
-    // если удалили выбранное слово, выбираем первое из оставшихся
-    if (selectedWord.id === id) {
-      setSelectedWord(updatedWords[0] || null);
-    }
-  };
-
-  const handleWordSelect = (word) => {
-    setSelectedWord(word);
+    setWords(words.filter((word) => word.id !== id));
   };
 
   return (
     <div className="app">
       <Header toggleTheme={toggleTheme} theme={theme} />
       <main>
-        {selectedWord && <WordCard word={selectedWord} />}
+        <WordCarousel words={words} />
         <WordTable
           words={words}
           onEditWord={handleEditWord}
           onDeleteWord={handleDeleteWord}
-          onWordSelect={handleWordSelect}
         />
       </main>
       <Footer />
