@@ -8,18 +8,24 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin-bottom: 1rem; /* var(--spacing-md) */
-  padding: 0 1rem; /* var(--spacing-md) */
+  margin-bottom: 2rem;
+  padding: 0 1rem;
+}
+
+.carousel-header h2 {
+  font-size: 2rem;
+  font-weight: 700;
+  color: var(--text);
 }
 
 .carousel-progress {
   background-color: var(--primary);
   color: var(--text);
-  padding: 0.25rem 0.5rem; /* var(--spacing-xs) var(--spacing-sm) */
-  border-radius: 0.25rem; /* var(--radius-sm) */
+  padding: 0.5rem 1rem;
+  border-radius: var(--radius-sm);
   font-weight: 600;
   min-width: 5rem;
-  font-size: 1rem;
+  font-size: 1.1rem;
 }
 
 .carousel-container {
@@ -55,25 +61,25 @@
 .carousel-card.left-2 {
   z-index: 1;
   transform: translateX(-170%) scale(0.8);
-  opacity: 0.7;
+  opacity: 0.4;
 }
 
 .carousel-card.left-1 {
   z-index: 5;
   transform: translateX(-120%) scale(0.9);
-  opacity: 0.9;
+  opacity: 0.6;
 }
 
 .carousel-card.right-1 {
   z-index: 5;
   transform: translateX(20%) scale(0.9);
-  opacity: 0.9;
+  opacity: 0.6;
 }
 
 .carousel-card.right-2 {
   z-index: 1;
   transform: translateX(70%) scale(0.8);
-  opacity: 0.7;
+  opacity: 0.4;
 }
 
 .carousel-card.hidden {
