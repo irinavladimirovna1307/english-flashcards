@@ -1,5 +1,5 @@
 import React from "react";
-import WordTableRow from "./WordTableRow";
+import WordTableRow from "../WordTableRow/WordTableRow";
 import "./WordTable.css";
 
 const WordTable = ({ words, onEditWord, onDeleteWord, onWordSelect }) => {

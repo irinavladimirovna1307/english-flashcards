@@ -1,6 +1,6 @@
 import React, { useState } from "react";
-import Button from "./Button";
-import "./WordTable.css";
+import Button from "../Button/Button";
+import "../WordTable/WordTable.css";
 
 const WordTableRow = ({ word, onEdit, onDelete, onWordSelect }) => {
   const [isEditing, setIsEditing] = useState(false);
