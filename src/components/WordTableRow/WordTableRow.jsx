@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import Button from "../Button/Button";
 import "../WordTable/WordTable.css";
 
-const WordTableRow = ({ word, onEdit, onDelete, onWordSelect }) => {
+const WordTableRow = ({ word, onEdit, onDelete }) => {
   const [isEditing, setIsEditing] = useState(false);
   const [editedWord, setEditedWord] = useState({ ...word });
 
@@ -23,10 +23,6 @@ const WordTableRow = ({ word, onEdit, onDelete, onWordSelect }) => {
     setIsEditing(false);
   };
 
-  const handleRowClick = () => {
-    onWordSelect(word);
-  };
-
   const handleChange = (field, value) => {
     setEditedWord((prev) => ({ ...prev, [field]: value }));
   };
@@ -39,7 +35,7 @@ const WordTableRow = ({ word, onEdit, onDelete, onWordSelect }) => {
 
   if (isEditing) {
     return (
-      <tr className="editing-row" onClick={handleRowClick}>
+      <tr className="editing-row">
         <td className="word-table-cell">
           <input
             type="text"
@@ -85,7 +81,7 @@ const WordTableRow = ({ word, onEdit, onDelete, onWordSelect }) => {
   }
 
   return (
-    <tr className="word-table-row" onClick={handleRowClick}>
+    <tr className="word-table-row">
       <td className="word-table-cell">{word.english}</td>
       <td className="word-table-cell">{word.transcription}</td>
       <td className="word-table-cell">{word.russian}</td>

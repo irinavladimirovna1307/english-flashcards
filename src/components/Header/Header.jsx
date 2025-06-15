@@ -1,15 +1,21 @@
 import React from "react";
 import "./Header.css";
 import { FiSun, FiMoon } from "react-icons/fi";
+import { Link } from "react-router-dom";
 
 const Header = ({ toggleTheme, theme }) => {
   return (
     <header className="header-component">
-      <h1 className="header-title">WordFlow</h1>
+      <Link to="/" className="logo-link">
+        <h1 className="header-title">WordFlow</h1>
+      </Link>
       <nav className="navigation-container">
-        <button className="nav-button">Words</button>
-        <button className="nav-button">Training</button>
-        <button className="nav-button">Progress</button>
+        <Link to="/" className="nav-button">
+          Words
+        </Link>
+        <Link to="/game" className="nav-button">
+          Training
+        </Link>
         <button
           className="theme-toggle-button"
           onClick={toggleTheme}

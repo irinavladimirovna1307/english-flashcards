@@ -1,8 +1,10 @@
 import React, { useState, useEffect } from "react";
+import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
 import Header from "./components/Header/Header";
 import Footer from "./components/Footer/Footer";
 import WordCarousel from "./components/WordCarousel/WordCarousel";
 import WordTable from "./components/WordTable/WordTable";
+import NotFound from "./components/NotFound/NotFound";
 
 const App = () => {
   const [theme, setTheme] = useState("light");
@@ -121,12 +123,20 @@ const App = () => {
     <div className="app">
       <Header toggleTheme={toggleTheme} theme={theme} />
       <main>
-        <WordCarousel words={words} />
-        <WordTable
-          words={words}
-          onEditWord={handleEditWord}
-          onDeleteWord={handleDeleteWord}
-        />
+        <Routes>
+          <Route
+            path="/"
+            element={
+              <WordTable
+                words={words}
+                onEditWord={handleEditWord}
+                onDeleteWord={handleDeleteWord}
+              />
+            }
+          />
+          <Route path="/game" element={<WordCarousel words={words} />} />
+          <Route path="*" element={<NotFound />} />
+        </Routes>
       </main>
       <Footer />
     </div>
