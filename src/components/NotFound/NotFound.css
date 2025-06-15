@@ -94,12 +94,12 @@
 }
 
 .dog-ear.left {
-  left: -0.5rem;
+  left: -0.8rem;
   transform: rotate(-20deg);
 }
 
 .dog-ear.right {
-  right: -0.5rem;
+  right: -0.8rem;
   transform: rotate(20deg);
 }
 
@@ -148,7 +148,7 @@
 .dog-tail {
   position: absolute;
   bottom: 3.5rem;
-  right: 1.5rem;
+  right: 2.8rem;
   width: 2.5rem;
   height: 0.7rem;
   background-color: var(--primary-dark);
