@@ -2,6 +2,20 @@
 .logo-link {
   text-decoration: none;
   color: inherit;
+  display: flex;
+  align-items: center;
+  height: 100%;
+}
+
+.header-logo {
+  height: 6rem;
+  width: auto;
+  transition: var(--transition);
+  object-fit: contain;
+}
+
+.header-logo:hover {
+  transform: scale(1.05);
 }
 
 .header-component {
@@ -10,30 +24,25 @@
   z-index: 100;
   background-color: var(--primary);
   color: var(--text);
-  padding: var(--spacing-md) var(--spacing-lg);
+  padding: 0.3rem var(--spacing-lg);
   display: flex;
   justify-content: space-between;
   align-items: center;
   box-shadow: var(--shadow-md);
-}
-
-.header-title {
-  margin: 0;
-  font-size: 1.8rem;
-  font-weight: 700;
+  min-height: 4rem;
 }
 
 .navigation-container {
   display: flex;
   align-items: center;
-  gap: var(--spacing-sm);
+  gap: var(--spacing-md);
 }
 
 .nav-button {
   background: none;
   border: none;
   color: var(--text);
-  padding: var(--spacing-sm) var(--spacing-md);
+  padding: 0.5rem 1rem;
   cursor: pointer;
   font-weight: 500;
   border-radius: var(--radius-sm);
@@ -55,8 +64,62 @@
   align-items: center;
   justify-content: center;
   transition: var(--transition);
+  margin-right: 1rem;
 }
 
 .theme-toggle-button:hover {
   background-color: rgba(0, 0, 0, 0.05);
+}
+
+/* Адаптивность */
+@media (max-width: 1200px) {
+  .header-logo {
+    height: 6rem;
+  }
+}
+
+@media (max-width: 992px) {
+  .header-logo {
+    height: 5rem;
+  }
+
+  .nav-button {
+    padding: 0.5rem 0.8rem;
+    font-size: 0.9rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .header-logo {
+    height: 4rem;
+  }
+
+  .navigation-container {
+    gap: 0.5rem;
+  }
+
+  .nav-button {
+    padding: 0.4rem 0.6rem;
+    font-size: 0.85rem;
+  }
+}
+
+@media (max-width: 576px) {
+  .header-logo {
+    height: 3rem;
+  }
+
+  .header-component {
+    padding: 0.3rem var(--spacing-md);
+    min-height: 3.5rem;
+  }
+
+  .nav-button {
+    padding: 0.3rem 0.5rem;
+    font-size: 0.8rem;
+  }
+
+  .theme-toggle-button {
+    padding: 0.4rem;
+  }
 }

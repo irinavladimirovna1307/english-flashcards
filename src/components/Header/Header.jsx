@@ -7,7 +7,11 @@ const Header = ({ toggleTheme, theme }) => {
   return (
     <header className="header-component">
       <Link to="/" className="logo-link">
-        <h1 className="header-title">WordFlow</h1>
+        <img
+          src="/logos/WordFlow_logo.svg"
+          alt="WordFlow Logo"
+          className="header-logo"
+        />
       </Link>
       <nav className="navigation-container">
         <Link to="/" className="nav-button">
