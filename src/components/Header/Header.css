@@ -64,7 +64,7 @@
   align-items: center;
   justify-content: center;
   transition: var(--transition);
-  margin-right: 1rem;
+  margin-right: 3rem;
 }
 
 .theme-toggle-button:hover {
