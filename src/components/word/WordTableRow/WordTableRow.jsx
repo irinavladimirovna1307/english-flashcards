@@ -6,19 +6,25 @@ const WordTableRow = ({ word, onEdit, onDelete }) => {
   const [isEditing, setIsEditing] = useState(false);
   const [editedWord, setEditedWord] = useState({ ...word });
 
-  const handleEditClick = (e) => {
-    e.stopPropagation();
+  const fields = [
+    { key: "english", label: "English" },
+    { key: "transcription", label: "Transcription" },
+    { key: "russian", label: "Russian" },
+  ];
+
+  const handleEditClick = (event) => {
+    event.stopPropagation();
     setIsEditing(true);
   };
 
-  const handleSaveClick = (e) => {
-    e.stopPropagation();
+  const handleSaveClick = (event) => {
+    event.stopPropagation();
     onEdit(word.id, editedWord);
     setIsEditing(false);
   };
 
-  const handleCancelClick = (e) => {
-    e.stopPropagation();
+  const handleCancelClick = (event) => {
+    event.stopPropagation();
     setEditedWord({ ...word });
     setIsEditing(false);
   };
@@ -27,45 +33,28 @@ const WordTableRow = ({ word, onEdit, onDelete }) => {
     setEditedWord((prev) => ({ ...prev, [field]: value }));
   };
 
-  const handleKeyDown = (e) => {
-    if (e.key === "Enter") {
-      handleSaveClick(e);
+  const handleKeyDown = (event) => {
+    if (event.key === "Enter") {
+      handleSaveClick(event);
     }
   };
 
   if (isEditing) {
     return (
       <tr className="editing-row">
-        <td className="word-table-cell">
-          <input
-            type="text"
-            value={editedWord.english}
-            onChange={(e) => handleChange("english", e.target.value)}
-            onKeyDown={handleKeyDown}
-            className="edit-input-field"
-            onClick={(e) => e.stopPropagation()}
-          />
-        </td>
-        <td className="word-table-cell">
-          <input
-            type="text"
-            value={editedWord.transcription}
-            onChange={(e) => handleChange("transcription", e.target.value)}
-            onKeyDown={handleKeyDown}
-            className="edit-input-field"
-            onClick={(e) => e.stopPropagation()}
-          />
-        </td>
-        <td className="word-table-cell">
-          <input
-            type="text"
-            value={editedWord.russian}
-            onChange={(e) => handleChange("russian", e.target.value)}
-            onKeyDown={handleKeyDown}
-            className="edit-input-field"
-            onClick={(e) => e.stopPropagation()}
-          />
-        </td>
+        {fields.map((field) => (
+          <td key={field.key} className="word-table-cell">
+            <input
+              type="text"
+              value={editedWord[field.key]}
+              onChange={(event) => handleChange(field.key, event.target.value)}
+              onKeyDown={handleKeyDown}
+              className="edit-input-field"
+              onClick={(event) => event.stopPropagation()}
+              aria-label={`Edit ${field.label}`}
+            />
+          </td>
+        ))}
         <td className="word-table-cell">
           <div className="editing-actions-container">
             <Button variant="success" onClick={handleSaveClick}>
@@ -82,17 +71,19 @@ const WordTableRow = ({ word, onEdit, onDelete }) => {
 
   return (
     <tr className="word-table-row">
-      <td className="word-table-cell">{word.english}</td>
-      <td className="word-table-cell">{word.transcription}</td>
-      <td className="word-table-cell">{word.russian}</td>
+      {fields.map((field) => (
+        <td key={field.key} className="word-table-cell">
+          {word[field.key]}
+        </td>
+      ))}
       <td className="word-table-cell actions-container">
         <Button variant="primary" onClick={handleEditClick}>
           Edit
         </Button>
         <Button
           variant="danger"
-          onClick={(e) => {
-            e.stopPropagation();
+          onClick={(event) => {
+            event.stopPropagation();
             onDelete(word.id);
           }}
         >

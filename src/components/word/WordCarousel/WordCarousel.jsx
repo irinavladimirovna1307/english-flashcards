@@ -50,7 +50,7 @@ const WordCarousel = ({ words = [], initialIndex = 0 }) => {
     return "hidden";
   };
 
-  if (words.length === 0) {
+  if (!words.length) {
     return (
       <div className="carousel-empty">
         <p>No words available</p>

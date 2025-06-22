@@ -2,16 +2,24 @@ import React from "react";
 import WordTableRow from "../WordTableRow/WordTableRow";
 import "./WordTable.css";
 
+const headers = [
+  { id: "english", label: "English" },
+  { id: "transcription", label: "Transcription" },
+  { id: "russian", label: "Russian" },
+  { id: "actions", label: "Actions" },
+];
+
 const WordTable = ({ words, onEditWord, onDeleteWord }) => {
   return (
     <div className="word-table-container">
       <table className="word-table">
         <thead>
           <tr>
-            <th className="word-table-header">English</th>
-            <th className="word-table-header">Transcription</th>
-            <th className="word-table-header">Russian</th>
-            <th className="word-table-header">Actions</th>
+            {headers.map((header) => (
+              <th key={header.id} className="word-table-header">
+                {header.label}
+              </th>
+            ))}
           </tr>
         </thead>
         <tbody>
