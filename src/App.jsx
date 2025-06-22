@@ -2,8 +2,8 @@ import React, { useState, useEffect } from "react";
 import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
 import Header from "./components/Header/Header";
 import Footer from "./components/Footer/Footer";
-import WordCarousel from "./components/WordCarousel/WordCarousel";
-import WordTable from "./components/WordTable/WordTable";
+import WordCarousel from "./components/word/WordCarousel/WordCarousel";
+import WordTable from "./components/word/WordTable/WordTable";
 import NotFound from "./components/NotFound/NotFound";
 
 const App = () => {
