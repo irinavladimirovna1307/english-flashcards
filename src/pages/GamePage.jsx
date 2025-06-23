@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import WordCarousel from "../components/word/WordCarousel/WordCarousel";
+import "./GamePage.css";
 
 const GamePage = ({ words }) => {
   const [learnedWordsCount, setLearnedWordsCount] = useState(0);

@@ -1,12 +1,30 @@
-import React, { useState } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import "./WordCard.css";
 
-const WordCard = ({ word }) => {
+const WordCard = ({ word, onShowTranslation }) => {
   const [showTranslation, setShowTranslation] = useState(false);
+  const showButtonRef = useRef(null);
 
   const toggleTranslation = () => {
+    if (!showTranslation && onShowTranslation) {
+      onShowTranslation();
+    }
     setShowTranslation(!showTranslation);
   };
+
+  // автофокус при изменении слова
+  useEffect(() => {
+    setShowTranslation(false);
+
+    // фокус после небольшой задержки для корректной работы анимации
+    const timer = setTimeout(() => {
+      if (showButtonRef.current) {
+        showButtonRef.current.focus();
+      }
+    }, 100);
+
+    return () => clearTimeout(timer);
+  }, [word]);
 
   return (
     <div className="word-card-component">
@@ -26,6 +44,7 @@ const WordCard = ({ word }) => {
           </div>
         ) : (
           <button
+            ref={showButtonRef}
             className="translation-toggle-button"
             onClick={toggleTranslation}
           >

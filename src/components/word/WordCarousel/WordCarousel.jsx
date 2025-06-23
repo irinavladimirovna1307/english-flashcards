@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import WordCard from "../WordCard/WordCard";
 import "./WordCarousel.css";
 
-const WordCarousel = ({ words = [], initialIndex = 0 }) => {
+const WordCarousel = ({ words = [], initialIndex = 0, onShowTranslation }) => {
   const [currentIndex, setCurrentIndex] = useState(initialIndex);
   const [isAnimating, setIsAnimating] = useState(false);
 
@@ -85,7 +85,7 @@ const WordCarousel = ({ words = [], initialIndex = 0 }) => {
                 className={`carousel-card ${position}`}
                 onClick={() => updateCarousel(index)}
               >
-                <WordCard word={word} />
+                <WordCard word={word} onShowTranslation={onShowTranslation} />
               </div>
             );
           })}
