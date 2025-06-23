@@ -2,9 +2,9 @@ import React, { useState, useEffect } from "react";
 import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
 import Header from "./components/Header/Header";
 import Footer from "./components/Footer/Footer";
-import WordCarousel from "./components/word/WordCarousel/WordCarousel";
-import WordTable from "./components/word/WordTable/WordTable";
-import NotFound from "./components/NotFound/NotFound";
+import HomePage from "./pages/HomePage";
+import GamePage from "./pages/GamePage";
+import NotFoundPage from "./pages/NotFoundPage";
 
 const App = () => {
   const [theme, setTheme] = useState("light");
@@ -127,15 +127,15 @@ const App = () => {
           <Route
             path="/"
             element={
-              <WordTable
+              <HomePage
                 words={words}
                 onEditWord={handleEditWord}
                 onDeleteWord={handleDeleteWord}
               />
             }
           />
-          <Route path="/game" element={<WordCarousel words={words} />} />
-          <Route path="*" element={<NotFound />} />
+          <Route path="/game" element={<GamePage words={words} />} />
+          <Route path="*" element={<NotFoundPage />} />
         </Routes>
       </main>
       <Footer />
