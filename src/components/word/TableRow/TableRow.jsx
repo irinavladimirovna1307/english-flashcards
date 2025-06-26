@@ -1,16 +1,36 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import Button from "../../Button/Button";
 import "../Table/Table.css";
 
 const TableRow = ({ word, onEdit, onDelete }) => {
   const [isEditing, setIsEditing] = useState(false);
   const [editedWord, setEditedWord] = useState({ ...word });
+  const [errors, setErrors] = useState({});
 
   const fields = [
     { key: "english", label: "English" },
     { key: "transcription", label: "Transcription" },
     { key: "russian", label: "Russian" },
   ];
+
+  //проверка пустые ли поля
+  const validateFields = () => {
+    const newErrors = {};
+    fields.forEach((field) => {
+      if (!editedWord[field.key]?.trim()) {
+        newErrors[field.key] = "Field cannot be empty";
+      }
+    });
+    setErrors(newErrors);
+    return Object.keys(newErrors).length === 0;
+  };
+
+  //сбрасывание ошибок при редактировании полей
+  useEffect(() => {
+    if (isEditing) {
+      setErrors({});
+    }
+  }, [isEditing]);
 
   const handleEditClick = (event) => {
     event.stopPropagation();
@@ -19,8 +39,12 @@ const TableRow = ({ word, onEdit, onDelete }) => {
 
   const handleSaveClick = (event) => {
     event.stopPropagation();
-    onEdit(word.id, editedWord);
-    setIsEditing(false);
+
+    if (validateFields()) {
+      onEdit(word.id, editedWord);
+      setIsEditing(false);
+      console.log("Saved word:", editedWord);
+    }
   };
 
   const handleCancelClick = (event) => {
@@ -49,15 +73,22 @@ const TableRow = ({ word, onEdit, onDelete }) => {
               value={editedWord[field.key]}
               onChange={(event) => handleChange(field.key, event.target.value)}
               onKeyDown={handleKeyDown}
-              className="edit-input-field"
+              className={`edit-input-field ${errors[field.key] ? "error" : ""}`}
               onClick={(event) => event.stopPropagation()}
               aria-label={`Edit ${field.label}`}
             />
+            {errors[field.key] && (
+              <div className="error-message">{errors[field.key]}</div>
+            )}
           </td>
         ))}
         <td className="word-table-cell">
           <div className="editing-actions-container">
-            <Button variant="success" onClick={handleSaveClick}>
+            <Button
+              variant="success"
+              onClick={handleSaveClick}
+              disabled={Object.keys(errors).length > 0}
+            >
               Save
             </Button>
             <Button variant="secondary" onClick={handleCancelClick}>
