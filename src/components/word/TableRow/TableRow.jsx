@@ -16,13 +16,17 @@ const TableRow = ({ word, onEdit, onDelete }) => {
   //проверка пустые ли поля
   const validateFields = () => {
     const newErrors = {};
+    let hasErrors = false;
+
     fields.forEach((field) => {
       if (!editedWord[field.key]?.trim()) {
         newErrors[field.key] = "Field cannot be empty";
+        hasErrors = true;
       }
     });
+
     setErrors(newErrors);
-    return Object.keys(newErrors).length === 0;
+    return !hasErrors;
   };
 
   //сбрасывание ошибок при редактировании полей
@@ -43,7 +47,13 @@ const TableRow = ({ word, onEdit, onDelete }) => {
     if (validateFields()) {
       onEdit(word.id, editedWord);
       setIsEditing(false);
-      console.log("Saved word:", editedWord);
+      console.log("Successfully edited word:", editedWord);
+    } else {
+      //уведомление о невалидных полях
+      console.log(
+        "Validation error: One or more fields are invalid",
+        editedWord
+      );
     }
   };
 
@@ -87,7 +97,7 @@ const TableRow = ({ word, onEdit, onDelete }) => {
             <Button
               variant="success"
               onClick={handleSaveClick}
-              disabled={Object.keys(errors).length > 0}
+              disabled={fields.some((f) => !editedWord[f.key]?.trim())}
             >
               Save
             </Button>
