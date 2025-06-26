@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import WordCarousel from "../components/word/WordCarousel/WordCarousel";
+import Carousel from "../../components/word/Carousel/Carousel";
 import "./GamePage.css";
 
 const GamePage = ({ words }) => {
@@ -14,7 +14,7 @@ const GamePage = ({ words }) => {
       <div className="progress-indicator">
         Изучено слов: {learnedWordsCount}
       </div>
-      <WordCarousel words={words} onShowTranslation={handleShowTranslation} />
+      <Carousel words={words} onShowTranslation={handleShowTranslation} />
     </div>
   );
 };

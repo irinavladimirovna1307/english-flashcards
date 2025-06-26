@@ -1,13 +1,9 @@
 import React from "react";
-import WordTable from "../components/word/WordTable/WordTable";
+import Table from "../components/word/Table/Table";
 
 const HomePage = ({ words, onEditWord, onDeleteWord }) => {
   return (
-    <WordTable
-      words={words}
-      onEditWord={onEditWord}
-      onDeleteWord={onDeleteWord}
-    />
+    <Table words={words} onEditWord={onEditWord} onDeleteWord={onDeleteWord} />
   );
 };
 

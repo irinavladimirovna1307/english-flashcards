@@ -1,8 +1,8 @@
 import React, { useState } from "react";
 import Button from "../../Button/Button";
-import "../WordTable/WordTable.css";
+import "../Table/Table.css";
 
-const WordTableRow = ({ word, onEdit, onDelete }) => {
+const TableRow = ({ word, onEdit, onDelete }) => {
   const [isEditing, setIsEditing] = useState(false);
   const [editedWord, setEditedWord] = useState({ ...word });
 
@@ -94,4 +94,4 @@ const WordTableRow = ({ word, onEdit, onDelete }) => {
   );
 };
 
-export default WordTableRow;
+export default TableRow;

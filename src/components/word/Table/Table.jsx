@@ -1,6 +1,6 @@
 import React from "react";
-import WordTableRow from "../WordTableRow/WordTableRow";
-import "./WordTable.css";
+import TableRow from "../TableRow/TableRow";
+import "./Table.css";
 
 const headers = [
   { id: "english", label: "English" },
@@ -9,7 +9,7 @@ const headers = [
   { id: "actions", label: "Actions" },
 ];
 
-const WordTable = ({ words, onEditWord, onDeleteWord }) => {
+const Table = ({ words, onEditWord, onDeleteWord }) => {
   return (
     <div className="word-table-container">
       <table className="word-table">
@@ -24,7 +24,7 @@ const WordTable = ({ words, onEditWord, onDeleteWord }) => {
         </thead>
         <tbody>
           {words.map((word) => (
-            <WordTableRow
+            <TableRow
               key={word.id}
               word={word}
               onEdit={onEditWord}
@@ -37,4 +37,4 @@ const WordTable = ({ words, onEditWord, onDeleteWord }) => {
   );
 };
 
-export default WordTable;
+export default Table;

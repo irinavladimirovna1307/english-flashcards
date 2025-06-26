@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useRef } from "react";
-import "./WordCard.css";
+import "./Card.css";
 
-const WordCard = ({ word, onShowTranslation }) => {
+const Card = ({ word, onShowTranslation }) => {
   const [showTranslation, setShowTranslation] = useState(false);
   const showButtonRef = useRef(null);
 
@@ -56,4 +56,4 @@ const WordCard = ({ word, onShowTranslation }) => {
   );
 };
 
-export default WordCard;
+export default Card;

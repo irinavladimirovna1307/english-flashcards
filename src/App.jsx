@@ -3,7 +3,7 @@ import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
 import Header from "./components/Header/Header";
 import Footer from "./components/Footer/Footer";
 import HomePage from "./pages/HomePage";
-import GamePage from "./pages/GamePage";
+import GamePage from "./pages/GamePage/GamePage";
 import NotFoundPage from "./pages/NotFoundPage";
 
 const App = () => {
