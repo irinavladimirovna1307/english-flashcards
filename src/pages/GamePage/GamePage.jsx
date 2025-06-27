@@ -1,6 +1,6 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import Carousel from "../../components/word/Carousel/Carousel";
-import { useAppContext } from "../../contexts/AppContext";
+import useAppContext from "../../hooks/useAppContext";
 import LoadingSpinner from "../../components/LoadingSpinner/LoadingSpinner";
 import ErrorDisplay from "../../components/ErrorDisplay/ErrorDisplay";
 import "./GamePage.css";
@@ -8,6 +8,15 @@ import "./GamePage.css";
 const GamePage = () => {
   const [learnedWordsCount, setLearnedWordsCount] = useState(0);
   const { words, isLoading, error, fetchWords } = useAppContext();
+
+  useEffect(() => {
+    console.log("GamePage render:", {
+      isLoading,
+      error,
+      wordsCount: words.length,
+      learnedWordsCount,
+    });
+  }, [isLoading, error, words, learnedWordsCount]);
 
   const handleShowTranslation = () => {
     setLearnedWordsCount((prev) => prev + 1);

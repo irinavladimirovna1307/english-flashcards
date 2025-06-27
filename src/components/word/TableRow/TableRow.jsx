@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import Button from "../../Button/Button";
-import { useAppContext } from "../../../contexts/AppContext";
+import useAppContext from "../../../hooks/useAppContext";
 import "../Table/Table.css";
 
 const TableRow = ({ word }) => {
@@ -23,7 +23,7 @@ const TableRow = ({ word }) => {
 
     fields.forEach((field) => {
       if (!editedWord[field.key]?.trim()) {
-        newErrors[field.key] = "Field cannot be empty";
+        newErrors[field.key] = "Поле не может быть пустым";
         hasErrors = true;
       }
     });
@@ -45,7 +45,7 @@ const TableRow = ({ word }) => {
         await editWord(word.id, editedWord);
         setIsEditing(false);
       } catch (err) {
-        console.error("Error updating word:", err);
+        console.error("Ошибка изменения слова:", err);
       }
     }
   };
@@ -71,7 +71,7 @@ const TableRow = ({ word }) => {
     try {
       await deleteWord(word.id);
     } catch (err) {
-      console.error("Error deleting word:", err);
+      console.error("Ошибка удаления слова:", err);
     }
   };
 

@@ -1,11 +1,19 @@
-import React from "react";
+import React, { useEffect } from "react";
 import Table from "../components/word/Table/Table";
-import { useAppContext } from "../contexts/AppContext";
+import useAppContext from "../hooks/useAppContext";
 import LoadingSpinner from "../components/LoadingSpinner/LoadingSpinner";
 import ErrorDisplay from "../components/ErrorDisplay/ErrorDisplay";
 
 const HomePage = () => {
   const { words, isLoading, error, fetchWords } = useAppContext();
+
+  useEffect(() => {
+    console.log("HomePage render:", {
+      isLoading,
+      error,
+      wordsCount: words.length,
+    });
+  }, [isLoading, error, words]);
 
   if (isLoading) {
     return <LoadingSpinner />;
