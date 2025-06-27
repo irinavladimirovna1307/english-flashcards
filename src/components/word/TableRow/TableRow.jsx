@@ -123,13 +123,7 @@ const TableRow = ({ word }) => {
         <Button variant="primary" onClick={handleEditClick}>
           Edit
         </Button>
-        <Button
-          variant="danger"
-          onClick={(event) => {
-            event.stopPropagation();
-            onDelete(word.id);
-          }}
-        >
+        <Button variant="danger" onClick={handleDelete}>
           Delete
         </Button>
       </td>

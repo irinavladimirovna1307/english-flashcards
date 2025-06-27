@@ -9,7 +9,7 @@ const headers = [
   { id: "actions", label: "Actions" },
 ];
 
-const Table = ({ words, onEditWord, onDeleteWord }) => {
+const Table = ({ words }) => {
   return (
     <div className="word-table-container">
       <table className="word-table">
@@ -24,12 +24,7 @@ const Table = ({ words, onEditWord, onDeleteWord }) => {
         </thead>
         <tbody>
           {words.map((word) => (
-            <TableRow
-              key={word.id}
-              word={word}
-              onEdit={onEditWord}
-              onDelete={onDeleteWord}
-            />
+            <TableRow key={word.id} word={word} />
           ))}
         </tbody>
       </table>
