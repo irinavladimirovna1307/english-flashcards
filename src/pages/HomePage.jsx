@@ -1,10 +1,21 @@
 import React from "react";
 import Table from "../components/word/Table/Table";
+import { useAppContext } from "../contexts/AppContext";
+import LoadingSpinner from "../components/LoadingSpinner/LoadingSpinner";
+import ErrorDisplay from "../components/ErrorDisplay/ErrorDisplay";
 
-const HomePage = ({ words, onEditWord, onDeleteWord }) => {
-  return (
-    <Table words={words} onEditWord={onEditWord} onDeleteWord={onDeleteWord} />
-  );
+const HomePage = () => {
+  const { words, isLoading, error, fetchWords } = useAppContext();
+
+  if (isLoading) {
+    return <LoadingSpinner />;
+  }
+
+  if (error) {
+    return <ErrorDisplay error={error} onRetry={fetchWords} />;
+  }
+
+  return <Table words={words} />;
 };
 
 export default HomePage;

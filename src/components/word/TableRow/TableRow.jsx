@@ -1,11 +1,14 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import Button from "../../Button/Button";
+import { useAppContext } from "../../../contexts/AppContext";
 import "../Table/Table.css";
 
-const TableRow = ({ word, onEdit, onDelete }) => {
+const TableRow = ({ word }) => {
   const [isEditing, setIsEditing] = useState(false);
   const [editedWord, setEditedWord] = useState({ ...word });
   const [errors, setErrors] = useState({});
+
+  const { editWord, deleteWord } = useAppContext();
 
   const fields = [
     { key: "english", label: "English" },
@@ -29,31 +32,21 @@ const TableRow = ({ word, onEdit, onDelete }) => {
     return !hasErrors;
   };
 
-  //сбрасывание ошибок при редактировании полей
-  useEffect(() => {
-    if (isEditing) {
-      setErrors({});
-    }
-  }, [isEditing]);
-
   const handleEditClick = (event) => {
     event.stopPropagation();
     setIsEditing(true);
   };
 
-  const handleSaveClick = (event) => {
+  const handleSaveClick = async (event) => {
     event.stopPropagation();
 
     if (validateFields()) {
-      onEdit(word.id, editedWord);
-      setIsEditing(false);
-      console.log("Successfully edited word:", editedWord);
-    } else {
-      //уведомление о невалидных полях
-      console.log(
-        "Validation error: One or more fields are invalid",
-        editedWord
-      );
+      try {
+        await editWord(word.id, editedWord);
+        setIsEditing(false);
+      } catch (err) {
+        console.error("Error updating word:", err);
+      }
     }
   };
 
@@ -70,6 +63,15 @@ const TableRow = ({ word, onEdit, onDelete }) => {
   const handleKeyDown = (event) => {
     if (event.key === "Enter") {
       handleSaveClick(event);
+    }
+  };
+
+  const handleDelete = async (event) => {
+    event.stopPropagation();
+    try {
+      await deleteWord(word.id);
+    } catch (err) {
+      console.error("Error deleting word:", err);
     }
   };
 
