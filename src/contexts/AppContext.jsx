@@ -145,6 +145,31 @@ export const AppProvider = ({ children }) => {
     }
   }, []);
 
+  /* Имитация ошибки
+  const fetchWords = useCallback(async () => {
+    setIsLoading(true);
+    setError(null);
+
+    try {
+      throw new Error("Тестовая ошибка загрузки данных");
+
+      await new Promise((resolve) => setTimeout(resolve, 1000));
+
+      if (isMounted.current) {
+        setWords(mockWords);
+      }
+    } catch (err) {
+      if (isMounted.current) {
+        setError(err.message);
+        console.error("Ошибка загрузки слов:", err);
+      }
+    } finally {
+      if (isMounted.current) {
+        setIsLoading(false);
+      }
+    }
+  }, []); */
+
   // добавление нового слова
   const addWord = useCallback(async (newWord) => {
     try {
