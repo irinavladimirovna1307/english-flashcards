@@ -1,3 +1,11 @@
+.error-display-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 80vh;
+  padding: var(--spacing-xl);
+}
+
 .error-display {
   background-color: var(--error);
   border: 1px solid var(--error-dark);
@@ -5,7 +13,8 @@
   padding: var(--spacing-lg);
   text-align: center;
   max-width: 500px;
-  margin: 0 auto;
+  width: 100%;
+  box-shadow: var(--shadow-md);
 }
 
 .error-icon {
@@ -14,9 +23,16 @@
   margin-bottom: var(--spacing-md);
 }
 
+.error-display h3 {
+  font-size: 1.5rem;
+  margin-bottom: var(--spacing-md);
+}
+
 .error-message {
   color: var(--text);
   margin: var(--spacing-md) 0;
+  font-size: 1.1rem;
+  line-height: 1.5;
 }
 
 .retry-button {
@@ -29,6 +45,9 @@
   font-weight: 600;
   transition: var(--transition);
   margin-top: var(--spacing-sm);
+  font-size: 1rem;
+  display: inline-block;
+  min-width: 150px;
 }
 
 .retry-button:hover {

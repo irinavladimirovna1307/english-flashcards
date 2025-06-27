@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import Carousel from "../../components/word/Carousel/Carousel";
 import useAppContext from "../../hooks/useAppContext";
 import LoadingSpinner from "../../components/LoadingSpinner/LoadingSpinner";
@@ -9,21 +9,23 @@ const GamePage = () => {
   const [learnedWordsCount, setLearnedWordsCount] = useState(0);
   const { words, isLoading, error, fetchWords } = useAppContext();
 
-  useEffect(() => {
-    console.log("GamePage render:", {
-      isLoading,
-      error,
-      wordsCount: words.length,
-      learnedWordsCount,
-    });
-  }, [isLoading, error, words, learnedWordsCount]);
-
   const handleShowTranslation = () => {
     setLearnedWordsCount((prev) => prev + 1);
   };
 
   if (isLoading) {
-    return <LoadingSpinner />;
+    return (
+      <div
+        style={{
+          minHeight: "50vh",
+          display: "flex",
+          alignItems: "center",
+          justifyContent: "center",
+        }}
+      >
+        <LoadingSpinner />
+      </div>
+    );
   }
 
   if (error) {

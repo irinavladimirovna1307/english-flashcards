@@ -23,7 +23,7 @@ class ErrorBoundary extends Component {
     if (this.state.hasError) {
       return (
         <ErrorDisplay
-          error="An unexpected error occurred in this component"
+          error="Произошла непредвиденная ошибка в этом компоненте"
           onRetry={this.handleReset}
         />
       );
