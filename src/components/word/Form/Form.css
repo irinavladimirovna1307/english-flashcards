@@ -1,0 +1,50 @@
+.word-form {
+  background-color: var(--card-bg);
+  padding: var(--spacing-lg);
+  border-radius: var(--radius-md);
+  margin-bottom: var(--spacing-lg);
+  box-shadow: var(--shadow-sm);
+}
+
+.word-form h3 {
+  margin-top: 0;
+  margin-bottom: var(--spacing-md);
+  color: var(--text);
+}
+
+.form-group {
+  margin-bottom: var(--spacing-md);
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: var(--spacing-xs);
+  font-weight: 600;
+  color: var(--text);
+}
+
+.form-group input {
+  width: 100%;
+  padding: var(--spacing-sm);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  transition: var(--transition);
+  font-size: 1rem;
+}
+
+.form-group input:focus {
+  border-color: var(--accent);
+  box-shadow: 0 0 0 2px rgba(230, 190, 174, 0.25);
+  outline: none;
+}
+
+.form-group input.error {
+  border-color: var(--error);
+  box-shadow: 0 0 0 2px rgba(200, 162, 162, 0.25);
+}
+
+.error-message {
+  color: var(--error);
+  font-size: 0.8rem;
+  margin-top: var(--spacing-xs);
+}
