@@ -19,10 +19,10 @@ const Form = ({ onAddWord }) => {
 
   const validate = () => {
     const newErrors = {};
-    if (!newWord.english.trim()) newErrors.english = "English is required";
+    if (!newWord.english.trim()) newErrors.english = "English word is required";
     if (!newWord.transcription.trim())
       newErrors.transcription = "Transcription is required";
-    if (!newWord.russian.trim()) newErrors.russian = "Russian is required";
+    if (!newWord.russian.trim()) newErrors.russian = "Russian word is required";
 
     setErrors(newErrors);
     return Object.keys(newErrors).length === 0;

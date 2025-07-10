@@ -11,12 +11,13 @@
   width: 100%;
   border-collapse: collapse;
   background-color: var(--card-bg);
+  table-layout: fixed;
 }
 
 .word-table-header {
   background-color: var(--primary);
   color: var(--text);
-  padding: var(--spacing-md);
+  padding: var(--spacing-md) var(--spacing-lg);
   text-align: left;
   font-weight: 600;
   position: sticky;
@@ -24,7 +25,8 @@
 }
 
 .word-table-cell {
-  padding: var(--spacing-md);
+  padding: var(--spacing-md) var(--spacing-lg);
+  text-align: left;
   border-bottom: 1px solid var(--border);
   vertical-align: middle;
 }
