@@ -85,7 +85,11 @@ const Carousel = ({ words = [], initialIndex = 0, onShowTranslation }) => {
                 className={`carousel-card ${position}`}
                 onClick={() => updateCarousel(index)}
               >
-                <Card word={word} onShowTranslation={onShowTranslation} />
+                <Card
+                  word={word}
+                  onShowTranslation={onShowTranslation}
+                  isActive={position === "center"}
+                />
               </div>
             );
           })}

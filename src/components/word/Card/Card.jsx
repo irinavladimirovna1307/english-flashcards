@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useRef } from "react";
 import "./Card.css";
 
-const Card = ({ word, onShowTranslation }) => {
+const Card = ({ word, onShowTranslation, isActive }) => {
   const [showTranslation, setShowTranslation] = useState(false);
   const showButtonRef = useRef(null);
 
@@ -12,19 +12,19 @@ const Card = ({ word, onShowTranslation }) => {
     setShowTranslation(!showTranslation);
   };
 
-  // автофокус при изменении слова
   useEffect(() => {
     setShowTranslation(false);
 
-    // фокус после небольшой задержки для корректной работы анимации
-    const timer = setTimeout(() => {
-      if (showButtonRef.current) {
-        showButtonRef.current.focus();
-      }
-    }, 100);
-
-    return () => clearTimeout(timer);
-  }, [word]);
+    // фокус только для активной (центральной) карточки
+    if (isActive) {
+      const timer = setTimeout(() => {
+        if (showButtonRef.current) {
+          showButtonRef.current.focus();
+        }
+      }, 100);
+      return () => clearTimeout(timer);
+    }
+  }, [word, isActive]);
 
   return (
     <div className="word-card-component">
