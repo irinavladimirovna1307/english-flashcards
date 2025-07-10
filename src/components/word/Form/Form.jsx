@@ -33,6 +33,7 @@ const Form = ({ onAddWord }) => {
     if (validate()) {
       onAddWord(newWord);
       setNewWord({ english: "", transcription: "", russian: "" });
+      setErrors({});
     }
   };
 

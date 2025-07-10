@@ -9,16 +9,15 @@ import NotFoundPage from "./pages/NotFoundPage";
 import wordStore from "./stores/wordStore";
 
 const App = observer(() => {
+  const { theme } = wordStore;
+
   useEffect(() => {
-    document.body.setAttribute("data-theme", wordStore.theme);
-  }, [wordStore.theme]);
+    document.body.setAttribute("data-theme", theme);
+  }, [theme]);
 
   return (
     <div className="app">
-      <Header
-        toggleTheme={wordStore.toogleTheme.bind(wordStore)}
-        theme={wordStore.theme}
-      />
+      <Header toggleTheme={() => wordStore.toggleTheme()} theme={theme} />
       <main>
         <Routes>
           <Route

@@ -48,3 +48,18 @@
   font-size: 0.8rem;
   margin-top: var(--spacing-xs);
 }
+
+@media (max-width: 768px) {
+  .word-form {
+    padding: var(--spacing-md);
+  }
+
+  .form-group {
+    margin-bottom: var(--spacing-sm);
+  }
+}
+
+.word-form {
+  margin-bottom: 2rem;
+  border: 1px solid var(--border);
+}
