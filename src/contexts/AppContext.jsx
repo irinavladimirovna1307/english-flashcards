@@ -120,28 +120,14 @@ export const AppProvider = ({ children }) => {
 
     try {
       console.log("Начало загрузки слов...");
-      await new Promise((resolve) => {
-        console.log("Таймер запущен");
-        setTimeout(() => {
-          console.log("Таймер завершен");
-          resolve();
-        }, 1000);
-      });
+      await new Promise((resolve) => setTimeout(resolve, 1000));
 
-      if (isMounted.current) {
-        console.log("Установка слов");
-        setWords(mockWords);
-      }
+      setWords(mockWords);
     } catch (err) {
-      if (isMounted.current) {
-        console.error("Ошибка загрузки слов:", err);
-        setError("Не удалось загрузить слова. Пожалуйста, попробуйте позже.");
-      }
+      console.error("Ошибка загрузки слов:", err);
+      setError("Не удалось загрузить слова...");
     } finally {
-      if (isMounted.current) {
-        console.log("Завершение загрузки");
-        setIsLoading(false);
-      }
+      setIsLoading(false);
     }
   }, []);
 
