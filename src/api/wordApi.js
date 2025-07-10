@@ -13,7 +13,6 @@ export const fetchWords = async () => {
 
 export const addWord = async (word) => {
   try {
-    // Добавляем обязательные поля tags и tags_json
     const wordToSend = {
       ...word,
       tags: "",
@@ -38,7 +37,6 @@ export const addWord = async (word) => {
 
 export const updateWord = async (id, updatedWord) => {
   try {
-    // Добавляем обязательные поля tags и tags_json
     const wordToSend = {
       ...updatedWord,
       tags: "",
