@@ -1,8 +1,10 @@
 import React, { useState } from "react";
+import { observer } from "mobx-react-lite";
 import Carousel from "../../components/word/Carousel/Carousel";
 import "./GamePage.css";
+import wordStore from "../../stores/wordStore";
 
-const GamePage = ({ words }) => {
+const GamePage = observer(() => {
   const [learnedWordsCount, setLearnedWordsCount] = useState(0);
 
   const handleShowTranslation = () => {
@@ -14,9 +16,12 @@ const GamePage = ({ words }) => {
       <div className="progress-indicator">
         Изучено слов: {learnedWordsCount}
       </div>
-      <Carousel words={words} onShowTranslation={handleShowTranslation} />
+      <Carousel
+        words={wordStore.words}
+        onShowTranslation={handleShowTranslation}
+      />
     </div>
   );
-};
+});
 
 export default GamePage;
